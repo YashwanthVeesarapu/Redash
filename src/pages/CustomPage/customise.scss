@@ -1,0 +1,106 @@
+.customise {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 100px);
+  min-width: 100%;
+
+  .section {
+    display: flex;
+    flex: 0.3;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+
+    div {
+      margin: 5px;
+      color: white;
+    }
+    label {
+      color: white;
+    }
+
+    button {
+      margin-top: 1em;
+    }
+  }
+
+  .smiddle {
+    display: flex;
+    flex: 0.4;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 90%;
+
+    #tshirt-div {
+      width: 452px;
+      height: 548px;
+      background-color: #fff;
+      border-radius: 2em;
+
+      overflow: hidden;
+      position: relative;
+
+      .canvas-container {
+        position: absolute !important;
+
+        top: 125px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.5s forwards;
+}
+
+@media (max-width: 768px) {
+  .customise {
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+
+    .section {
+      padding: 0;
+
+      display: flex;
+      justify-content: center;
+      width: 80%;
+    }
+  }
+
+  #tshirt-div {
+    scale: 0.8;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

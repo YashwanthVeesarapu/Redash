@@ -1,0 +1,49 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.redash.us/</loc>
+    <priority>1.0</priority>
+    <lastmod>2024-02-06</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+  
+  <!-- About Us Page -->
+  <url>
+    <loc>https://www.redash.us/about</loc>
+    <priority>0.8</priority>
+    <lastmod>2024-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <!-- Products Page -->
+  <url>
+    <loc>https://www.redash.us/login</loc>
+    <priority>0.7</priority>
+    <lastmod>2024-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <!-- Kobe 6 Protro Elegance T-Shirt -->
+  <url>
+    <loc>https://www.redash.us/product/65760d10d11368efeefadabc</loc>
+    <priority>0.9</priority>
+    <lastmod>2024-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+
+    <!-- Kobe 6 Protro Elegance Hoodie -->
+  <url>
+    <loc>https://www.redash.us/product/657648bfd11368efeefadabd</loc>
+    <priority>0.9</priority>
+    <lastmod>2024-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Standard Logo -->
+  <url>
+    <loc>https://www.redash.us/product/65bdc3ae199c07e9caeefc06</loc>
+      <priority>1.0</priority>
+     <lastmod>2024-02-06</lastmod>
+     <changefreq>daily</changefreq>
+   </url>
+  
+</urlset>

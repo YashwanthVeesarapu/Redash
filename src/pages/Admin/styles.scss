@@ -1,0 +1,80 @@
+.admin {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .tab {
+    display: flex;
+    flex: 0.3;
+    flex-direction: column;
+    max-height: calc(100vh - var(--header-height));
+
+    .nav-item {
+      background-color: white;
+      border-radius: 2em;
+      color: black;
+      height: 50px;
+      width: 300px;
+      padding: 20px;
+      margin: 10px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+
+    .nav-item-active {
+      background-color: gray;
+      border-radius: 2em;
+      color: black;
+      height: 50px;
+      width: 300px;
+      padding: 20px;
+      margin: 10px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      font-size: 1.5em;
+    }
+  }
+  .tab-content {
+    display: flex;
+    position: relative;
+    flex: 0.7;
+    flex-direction: column;
+    height: calc(100vh - var(--header-height));
+    overflow-y: scroll;
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  .modal-newp {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    // center
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    transform: translateX(5%);
+
+    background-color: black;
+    border: 1px solid white;
+
+    z-index: 100;
+  }
+  label {
+    color: white;
+  }
+}

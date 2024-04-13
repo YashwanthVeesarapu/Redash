@@ -1,0 +1,133 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  padding: 0 10px;
+  position: sticky;
+  z-index: 10;
+
+  .header-left {
+    flex: 1;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    h1 {
+      font-family: var(--base-font-family);
+      font-weight: 300;
+      text-transform: lowercase;
+    }
+  }
+
+  .shopping-cart {
+    cursor: pointer;
+  }
+
+  .header-middle {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      padding: 5px 10px;
+      border-radius: 2em;
+      border: none;
+      background-color: rgba(255, 255, 255, 0.5);
+      color: white;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
+
+  .h-right {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    .header-right {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    h2 {
+      margin: 0 5px 0 20px;
+      cursor: pointer;
+    }
+    button {
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  }
+
+  .small-menu {
+    display: none;
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      position: absolute;
+      top: 50px;
+      left: 0;
+
+      //Add blur filter
+      h2 {
+        border: 1px solid white;
+        padding: 10px;
+        margin: 2px 0;
+        background-color: black;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  header {
+    .header-middle {
+      display: none;
+    }
+
+    .h-right {
+      .header-right {
+        display: none;
+      }
+    }
+
+    .small-menu {
+      display: block;
+
+      .small-search {
+        align-items: center;
+        border: 1px solid white;
+        background-color: black;
+        margin: 3px 0;
+
+        input {
+          padding: 10px;
+          border-radius: 2em;
+          border: none;
+          background-color: rgba(255, 255, 255, 0.5);
+          color: white;
+          width: 60%;
+          &:focus {
+            outline: none;
+          }
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+          }
+        }
+      }
+    }
+  }
+}
