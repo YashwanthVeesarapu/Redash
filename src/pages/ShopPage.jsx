@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import MainLayout from "../layouts/MainLayout";
 import Product from "../components/Product";
 import { useEffect } from "react";
-import { apiInstance } from "../utils/apiInstance";
 import { CircularProgress } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import { getAllProducts } from "../services/productsService";
+import { apiInstance } from "../services";
 
 const ShopPage = ({ setOpen }) => {
   const [products, setProducts] = useState([]);
@@ -22,13 +23,18 @@ const ShopPage = ({ setOpen }) => {
   useEffect(() => {
     setLoading(true);
     if (param == null) {
-      apiInstance
-        .get(`/products/${pagenum}`)
-        .then((res) => {
-          setProducts(res.data.results);
-          setLoading(false);
-        })
-        .catch(() => setLoading(false));
+      // apiInstance
+      //   .get(`/products/${pagenum}`)
+      //   .then((res) => {
+      //     setProducts(res.data.results);
+      //     setLoading(false);
+      //   })
+      //   .catch(() => setLoading(false));
+
+      getAllProducts(pagenum).then((res) => {
+        setProducts(res);
+        setLoading(false);
+      });
     } else {
       apiInstance.post(`/products/search`, { query: param }).then((res) => {
         setProducts(res.data.results);

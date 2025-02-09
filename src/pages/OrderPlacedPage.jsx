@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MainLayout from "../layouts/MainLayout";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { apiInstance } from "../utils/apiInstance";
+
 import { useDispatch, useSelector } from "react-redux";
 import { getAuth } from "firebase/auth";
 import {
@@ -15,6 +15,7 @@ import {
   TableCell,
 } from "@mui/material";
 import { clearCart, clearCheckout } from "../redux/actions";
+import { apiInstance } from "../services";
 
 const OrderPlacedPage = ({ setOpen }) => {
   const { state } = useLocation();

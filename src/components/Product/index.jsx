@@ -54,7 +54,7 @@ const Product = (product) => {
 
   function redirect() {
     sessionStorage.setItem("scrool", window.scrollY);
-    navigate(`/product/${_id}`);
+    navigate(`/product/${name.replace(/\s/g, "-")}/${product.colors[0]}`);
   }
 
   setTimeout(() => {

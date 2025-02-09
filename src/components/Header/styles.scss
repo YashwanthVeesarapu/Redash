@@ -14,10 +14,19 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    sub {
+      font-size: 1.5em;
+      color: var(--primary-color);
+    }
     h1 {
       font-family: var(--base-font-family);
       font-weight: 300;
       text-transform: lowercase;
+
+      span {
+        font-size: 0.7em;
+      }
     }
   }
 

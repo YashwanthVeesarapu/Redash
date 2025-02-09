@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { apiInstance } from "../utils/apiInstance";
+
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import {
@@ -20,6 +20,7 @@ import { addToCart } from "../redux/actions";
 import "./styles.scss";
 import CustomButton from "../components/CustomButton";
 import { HelpOutline } from "@mui/icons-material";
+import { apiInstance } from "../services";
 
 const style = {
   position: "absolute",
@@ -43,27 +44,34 @@ const ProductPage = () => {
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const color = queryParams.get("color");
 
   const navigate = useNavigate();
 
   const [clr, setClr] = useState("");
 
-  const { productId } = useParams();
+  const { productName, color } = useParams();
 
   const dispatch = useDispatch();
 
   const { cart } = useSelector((state) => state);
 
+  const setColor = (color) => {
+    navigate(`/product/${productName}/${color}`);
+  };
+
+  console.log(productName, color);
+
   useEffect(() => {
-    apiInstance.get(`/products/product/${productId}`).then((res) => {
+    console.log(color);
+    if (!productName) return;
+    apiInstance.get(`/products/product/${productName}`).then((res) => {
       let availableColors = res.data.colors;
       console.log(color);
       if (color == null) {
         setClr(availableColors[0]);
         setImage(res.data.images[`${availableColors[0]}`]);
       } else if (!availableColors.includes(color)) {
-        navigate(`/product/${productId}?color=${availableColors[0]}`);
+        navigate(`/product/${productName}/${availableColors[0]}`);
       } else {
         setClr(color);
         setImage(res.data.images[`${color}`]);
@@ -74,13 +82,13 @@ const ProductPage = () => {
       setLoading(false);
     });
     setQty(1);
-  }, [productId, color]);
+  }, [productName, color]);
 
   const isAlreadyInCart = () => {
     let cartProducts = cart.products;
     for (let i = 0; i < cartProducts.length; i++) {
       if (
-        cartProducts[i]._id === productId &&
+        cartProducts[i]._id === productName &&
         cartProducts[i].color === clr &&
         cartProducts[i].size === size
       ) {
@@ -105,20 +113,18 @@ const ProductPage = () => {
           itemType="https://schema.org/Product"
           itemScope
         >
-          <meta itemProp="sku" content={product._id} />
+          <meta itemProp="sku" content={product._id + color.substring(0, 2)} />
 
           <img className="img-container" alt={product.name} src={image} />
           <meta
             itemProp="image"
-            content={`https://api.redash.us/images/${product._id}?color=${clr}`}
+            content={`https://api.mrredash.com/images/${product._id}?color=${clr}`}
           />
 
           <meta itemProp="description" content={product.about} />
-          <meta
-            itemProp="brand"
-            itemType="https://schema.org/Brand"
-            content={product.brand}
-          />
+          <div itemProp="brand" itemScope itemType="https://schema.org/Brand">
+            <meta itemProp="name" content={product.brand} />
+          </div>
 
           <div
             itemProp="audience"
@@ -142,11 +148,7 @@ const ProductPage = () => {
             <meta itemProp="name" content={product.name} />
 
             <h3 className="price">${product.price}</h3>
-            <div
-              itemProp="offers"
-              itemType="https://schema.org/Offer"
-              itemScope
-            >
+            <div itemType="https://schema.org/Offer" itemScope>
               <meta itemProp="url" content={window.location.href} />
               <meta
                 itemProp="itemCondition"
@@ -156,7 +158,10 @@ const ProductPage = () => {
                 itemProp="availability"
                 content="https://schema.org/InStock"
               />
-              <meta itemProp="price" content={product.price} />
+              <meta
+                itemProp="price"
+                content={product.price?.toString() || "0"}
+              />
               <meta itemProp="priceValidUntil" content="2025-01-01" />
               <meta itemProp="priceCurrency" content="USD" />
               <div
@@ -177,7 +182,7 @@ const ProductPage = () => {
                   itemProp="returnPolicyCategory"
                   content="https://schema.org/MerchantReturnFiniteReturnWindow"
                 />
-                <meta itemProp="merchantReturnDays" content="15" />
+                <meta itemProp="merchantReturnDays" content="30" />
                 <meta
                   itemProp="returnMethod"
                   content="https://schema.org/ReturnByMail"
@@ -318,7 +323,7 @@ const ProductPage = () => {
                         }
                         key={i}
                         style={{ backgroundColor: "white" }}
-                        onClick={() => setClr("white")}
+                        onClick={() => setColor("white")}
                       />
                     );
                   if (a === "black")
@@ -329,7 +334,7 @@ const ProductPage = () => {
                         }
                         key={i}
                         style={{ backgroundColor: "black" }}
-                        onClick={() => setClr("black")}
+                        onClick={() => setColor("black")}
                       />
                     );
 
@@ -341,7 +346,7 @@ const ProductPage = () => {
                         }
                         key={i}
                         style={{ backgroundColor: "#914A37" }}
-                        onClick={() => setClr("coffee brown")}
+                        onClick={() => setColor("coffee brown")}
                       />
                     );
                   if (a === "lavender")
@@ -352,7 +357,7 @@ const ProductPage = () => {
                         }
                         key={i}
                         style={{ backgroundColor: "#E6E6FA" }}
-                        onClick={() => setClr("lavender")}
+                        onClick={() => setColor("lavender")}
                       />
                     );
                   if (a === "light baby pink")
@@ -363,7 +368,7 @@ const ProductPage = () => {
                         }
                         key={i}
                         style={{ backgroundColor: "#f4C2C2" }}
-                        onClick={() => setClr("light baby pink")}
+                        onClick={() => setColor("light baby pink")}
                       />
                     );
 
@@ -375,7 +380,7 @@ const ProductPage = () => {
                         }
                         key={i}
                         style={{ backgroundColor: "red" }}
-                        onClick={() => setClr("red")}
+                        onClick={() => setColor("red")}
                       />
                     );
                   if (a === "army")
@@ -386,7 +391,7 @@ const ProductPage = () => {
                         }
                         key={i}
                         style={{ backgroundColor: "rgb(95, 88, 73)" }}
-                        onClick={() => setClr("army")}
+                        onClick={() => setColor("army")}
                       />
                     );
 
@@ -398,7 +403,7 @@ const ProductPage = () => {
                         }
                         key={i}
                         style={{ backgroundColor: "green" }}
-                        onClick={() => setClr("green")}
+                        onClick={() => setColor("green")}
                       />
                     );
                   return "";
@@ -435,30 +440,40 @@ const ProductPage = () => {
 
             <br />
 
-            <CustomButton
-              style={{
-                color: isAlreadyInCart() ? "gray" : "white",
-                backgroundColor: isAlreadyInCart() ? "white" : "black",
-              }}
-              onClick={() => {
-                const cartItem = {
-                  _id: product._id,
-                  name: product.name,
-                  quantity: qty,
-                  color: clr,
-                  price: product.price,
-                  size: size,
-                  brand: product.brand,
-                  img: image,
-                };
-                if (isAlreadyInCart()) {
-                  return alert("Product is already in your cart");
-                }
-                dispatch(addToCart(cartItem));
-              }}
-            >
-              ADD TO CART
-            </CustomButton>
+            {productName.split("-")[0] === "Custom" ? (
+              <CustomButton
+                onClick={() => {
+                  navigate("/custom");
+                }}
+              >
+                Design Now
+              </CustomButton>
+            ) : (
+              <CustomButton
+                style={{
+                  color: isAlreadyInCart() ? "gray" : "white",
+                  backgroundColor: isAlreadyInCart() ? "white" : "black",
+                }}
+                onClick={() => {
+                  const cartItem = {
+                    _id: product._id,
+                    name: product.name,
+                    quantity: qty,
+                    color: clr,
+                    price: product.price,
+                    size: size,
+                    brand: product.brand,
+                    img: image,
+                  };
+                  if (isAlreadyInCart()) {
+                    return alert("Product is already in your cart");
+                  }
+                  dispatch(addToCart(cartItem));
+                }}
+              >
+                ADD TO CART
+              </CustomButton>
+            )}
           </div>
         </div>
       )}

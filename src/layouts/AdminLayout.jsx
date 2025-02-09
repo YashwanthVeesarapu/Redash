@@ -9,7 +9,7 @@ const AdminLayout = (props) => {
 
   if (auth.currentUser == null) return <Navigate to="/" />;
 
-  if (auth?.currentUser?.email == "hello@redash.us")
+  if (auth?.currentUser?.email == "hello@mrredash.com")
     return (
       <>
         <Header />

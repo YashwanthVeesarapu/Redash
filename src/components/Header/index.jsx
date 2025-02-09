@@ -44,7 +44,10 @@ const Header = ({ page }) => {
     <header>
       <div className="header-left" onClick={() => navigate("/")}>
         {/* <img height={"40px"} width={"100%"} src={logo} /> */}
-        <h1>Redash</h1>
+        <h1>
+          <span>Mr.</span>
+          Redash
+        </h1>
       </div>
 
       {page == "shop" && (

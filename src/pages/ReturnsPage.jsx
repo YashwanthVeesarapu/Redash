@@ -60,7 +60,7 @@ const ReturnsPage = () => {
 
         <p>
           If you have any questions on how to return your item to us, contact us
-          at returns@redash.us.
+          at returns@mrredash.com.
         </p>
 
         <p>

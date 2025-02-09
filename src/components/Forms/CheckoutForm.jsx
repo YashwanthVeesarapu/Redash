@@ -6,10 +6,11 @@ import {
 } from "@stripe/react-stripe-js";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { returnURL } from "../../utils/apiInstance";
+
 import { useSelector } from "react-redux";
 
 import "./styles.scss";
+import { returnURL } from "../../services";
 
 const CheckoutForm = ({ message, setMessage, setPaymentInfo }) => {
   const stripe = useStripe();
@@ -73,7 +74,7 @@ const CheckoutForm = ({ message, setMessage, setPaymentInfo }) => {
       confirmParams: {
         // Make sure to change this to your payment completion page
         return_url: returnURL,
-        receipt_email: "hello@redash.us",
+        receipt_email: "hello@mrredash.com",
         shipping: checkout.shipping,
       },
     });
@@ -83,10 +84,8 @@ const CheckoutForm = ({ message, setMessage, setPaymentInfo }) => {
     // your `return_url`. For some payment methods like iDEAL, your customer will
     // be redirected to an intermediate site first to authorize the payment, then
     // redirected to the `return_url`.
-    if (error.type === "card_error" || error.type === "validation_error") {
-      setMessage(error.message);
-    } else {
-      setMessage("An unexpected error occurred.");
+    if (error) {
+      setMessage(error.message || "Something went wrong.");
     }
 
     setIsLoading(false);

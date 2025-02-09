@@ -76,7 +76,7 @@ function App() {
         <Route path="/" element={<ShopPage setOpen={setOpen} />} />
         <Route path="/profile" element={<ProfilePage setOpen={setOpen} />} />
         <Route path="/hellobello" element={<AdminPage />} />
-        <Route path="/product/:productId" element={<ProductPage />} />
+        <Route path="/product/:productName/:color" element={<ProductPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route
           path="/checkout/success"

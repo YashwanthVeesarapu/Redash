@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useEffect, useState } from "react";
-import { apiInstance } from "../utils/apiInstance";
+
 import CheckoutForm from "../components/Forms/CheckoutForm";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -29,6 +29,7 @@ import ContactForm from "../components/Forms/ContactForm";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { updateCheckoutDetails } from "../redux/actions";
+import { apiInstance } from "../services";
 
 // const products = [
 //   {

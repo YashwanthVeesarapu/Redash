@@ -12,7 +12,6 @@ import {
   CircularProgress,
 } from "@mui/material";
 
-import { apiInstance } from "../../utils/apiInstance";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -21,6 +20,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import Product from "../../components/Product";
 
 import "./styles.scss";
+import { apiInstance } from "../../services";
 
 const AdminPage = () => {
   const [images, setImages] = useState();
@@ -51,7 +51,7 @@ const AdminPage = () => {
   const [sizes, setSizes] = useState(["xs", "s", "m", "l", "xl"]);
   const [gender, setGender] = useState("female");
 
-  const [launchDate, setLaunchDate] = useState();
+  // const [launchDate, setLaunchDate] = useState();
 
   const [loading, setLoading] = useState(true);
   const [ploading, setPLoading] = useState(true);
@@ -141,7 +141,7 @@ const AdminPage = () => {
       details: details,
       images: finalImages,
       gender: gender,
-      launch_date: launchDate,
+      // launch_date: launchDate,
     };
 
     apiInstance.post("/products", productData).then((res) => {
@@ -163,7 +163,7 @@ const AdminPage = () => {
   }, [images]);
 
   useEffect(() => {
-    if (auth.currentUser?.email !== "hello@redash.us") {
+    if (auth.currentUser?.email !== "hello@mrredash.com") {
       navigate("/");
     }
   }, [auth.currentUser]);
@@ -220,7 +220,7 @@ const AdminPage = () => {
     setSizes(product.sizes);
     setColors(product.colors);
     setGender(product.gender);
-    setLaunchDate(product.launch_date);
+    // setLaunchDate(product.launch_date);
     setFinalImages(product.images);
     setId(product._id);
   };
@@ -465,13 +465,13 @@ const AdminPage = () => {
                   onChange={(e) => setFit(e.target.value)}
                   value={fit}
                 />
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker
                     label="Launch Date"
                     onChange={(newValue) => setLaunchDate(newValue)}
                     value={launchDate}
                   />
-                </LocalizationProvider>
+                </LocalizationProvider> */}
 
                 <FormControl>
                   <InputLabel id="gender-label">Gender</InputLabel>

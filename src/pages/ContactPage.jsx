@@ -4,7 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 const ContactPage = () => {
   return (
     <MainLayout page={"contact"}>
-      You can contact us at hello@redash.us
+      You can contact us at hello@mrredash.com
     </MainLayout>
   );
 };

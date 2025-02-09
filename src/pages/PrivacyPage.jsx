@@ -86,7 +86,7 @@ const PrivacyPage = () => {
         <h2>8. Contact Us</h2>
         <p>
           If you have any questions or concerns regarding this Privacy Policy,
-          please contact us at hello@redash.us.
+          please contact us at hello@mrredash.com.
         </p>
 
         <p>

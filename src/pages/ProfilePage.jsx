@@ -5,8 +5,9 @@ import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import "./styles.scss";
-import { apiInstance } from "../utils/apiInstance";
+
 import { useEffect } from "react";
+import { apiInstance } from "../services";
 
 const ProfilePage = ({ setOpen }) => {
   const auth = getAuth();
