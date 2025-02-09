@@ -152,10 +152,6 @@ const ProductPage = () => {
               itemProp="itemCondition"
               content="https://schema.org/NewCondition"
             />
-            <meta
-              itemProp="availability"
-              content="https://schema.org/InStock"
-            />
 
             <h3 className="price">${product.price}</h3>
             <div
@@ -169,6 +165,10 @@ const ProductPage = () => {
               />
               <meta itemProp="priceCurrency" content="USD" />
               <meta itemProp="url" content={window.location.href} />
+              <meta
+                itemProp="availability"
+                content="https://schema.org/InStock"
+              />
             </div>
 
             <div
