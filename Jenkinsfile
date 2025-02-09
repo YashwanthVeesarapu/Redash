@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Installing Firebase'
+                echo 'Installing Firebase...'
                 sh 'npm install -g firebase-tools'
             }
             steps {
