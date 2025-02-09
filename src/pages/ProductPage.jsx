@@ -122,9 +122,11 @@ const ProductPage = () => {
           />
 
           <meta itemProp="description" content={product.about} />
-          <div itemProp="brand" itemScope itemType="https://schema.org/Brand">
-            <meta itemProp="name" content={product.brand} />
-          </div>
+          <meta
+            itemProp="brand"
+            itemType="https://schema.org/Brand"
+            content={product.brand}
+          />
 
           <div
             itemProp="audience"
@@ -146,32 +148,99 @@ const ProductPage = () => {
           <div className="product-details">
             <h2>{product.name}</h2>
             <meta itemProp="name" content={product.name} />
+            <meta itemProp="url" content={window.location.href} />
+
+            <meta
+              itemProp="itemCondition"
+              content="https://schema.org/NewCondition"
+            />
+            <meta
+              itemProp="availability"
+              content="https://schema.org/InStock"
+            />
 
             <h3 className="price">${product.price}</h3>
             <div itemType="https://schema.org/Offer" itemScope>
-              <meta itemProp="url" content={window.location.href} />
-              <meta
-                itemProp="itemCondition"
-                content="https://schema.org/NewCondition"
-              />
-              <meta
-                itemProp="availability"
-                content="https://schema.org/InStock"
-              />
-              <meta
-                itemProp="price"
-                content={product.price?.toString() || "0"}
-              />
+              <meta itemProp="price" content={product.price} />
               <meta itemProp="priceValidUntil" content="2025-01-01" />
               <meta itemProp="priceCurrency" content="USD" />
+            </div>
+
+            <div
+              itemProp="eligibleRegion"
+              itemScope
+              itemType="http://schema.org/Place"
+            >
+              <meta itemProp="name" content="United States" />
+              <meta itemProp="taxRegion" content="tax-exempt" />
+            </div>
+            <div
+              itemProp="hasMerchantReturnPolicy"
+              itemType="https://schema.org/MerchantReturnPolicy"
+              itemScope
+            >
+              <meta itemProp="applicableCountry" content="US" />
+              <meta
+                itemProp="returnPolicyCategory"
+                content="https://schema.org/MerchantReturnFiniteReturnWindow"
+              />
+              <meta itemProp="merchantReturnDays" content="30" />
+              <meta
+                itemProp="returnMethod"
+                content="https://schema.org/ReturnByMail"
+              />
+              <meta
+                itemProp="returnFees"
+                content="https://schema.org/FreeReturn"
+              />
+            </div>
+
+            <div
+              itemProp="shippingDetails"
+              itemType="https://schema.org/OfferShippingDetails"
+              itemScope
+            >
               <div
-                itemProp="eligibleRegion"
+                itemProp="shippingRate"
+                itemType="https://schema.org/MonetaryAmount"
                 itemScope
-                itemType="http://schema.org/Place"
               >
-                <meta itemProp="name" content="United States" />
-                <meta itemProp="taxRegion" content="tax-exempt" />
+                <meta itemProp="value" content="0" />
+                <meta itemProp="currency" content="USD" />
               </div>
+              <div
+                itemProp="shippingDestination"
+                itemType="https://schema.org/DefinedRegion"
+                itemScope
+              >
+                <meta itemProp="addressCountry" content="US" />
+              </div>
+
+              <div
+                itemProp="deliveryTime"
+                itemType="https://schema.org/ShippingDeliveryTime"
+                itemScope
+              >
+                <div
+                  itemProp="handlingTime"
+                  itemType="https://schema.org/QuantitativeValue"
+                  itemScope
+                >
+                  <meta itemProp="minValue" content="0" />
+                  <meta itemProp="maxValue" content="1" />
+                  <meta itemProp="unitCode" content="DAY" />
+                </div>
+                <div
+                  itemProp="transitTime"
+                  itemType="https://schema.org/QuantitativeValue"
+                  itemScope
+                >
+                  <meta itemProp="minValue" content="1" />
+                  <meta itemProp="maxValue" content="5" />
+                  <meta itemProp="unitCode" content="DAY" />
+                </div>
+              </div>
+
               <div
                 itemProp="hasMerchantReturnPolicy"
                 itemType="https://schema.org/MerchantReturnPolicy"
@@ -182,7 +251,7 @@ const ProductPage = () => {
                   itemProp="returnPolicyCategory"
                   content="https://schema.org/MerchantReturnFiniteReturnWindow"
                 />
-                <meta itemProp="merchantReturnDays" content="30" />
+                <meta itemProp="merchantReturnDays" content="15" />
                 <meta
                   itemProp="returnMethod"
                   content="https://schema.org/ReturnByMail"
@@ -191,74 +260,6 @@ const ProductPage = () => {
                   itemProp="returnFees"
                   content="https://schema.org/FreeReturn"
                 />
-              </div>
-
-              <div
-                itemProp="shippingDetails"
-                itemType="https://schema.org/OfferShippingDetails"
-                itemScope
-              >
-                <div
-                  itemProp="shippingRate"
-                  itemType="https://schema.org/MonetaryAmount"
-                  itemScope
-                >
-                  <meta itemProp="value" content="0" />
-                  <meta itemProp="currency" content="USD" />
-                </div>
-                <div
-                  itemProp="shippingDestination"
-                  itemType="https://schema.org/DefinedRegion"
-                  itemScope
-                >
-                  <meta itemProp="addressCountry" content="US" />
-                </div>
-
-                <div
-                  itemProp="deliveryTime"
-                  itemType="https://schema.org/ShippingDeliveryTime"
-                  itemScope
-                >
-                  <div
-                    itemProp="handlingTime"
-                    itemType="https://schema.org/QuantitativeValue"
-                    itemScope
-                  >
-                    <meta itemProp="minValue" content="0" />
-                    <meta itemProp="maxValue" content="1" />
-                    <meta itemProp="unitCode" content="DAY" />
-                  </div>
-                  <div
-                    itemProp="transitTime"
-                    itemType="https://schema.org/QuantitativeValue"
-                    itemScope
-                  >
-                    <meta itemProp="minValue" content="1" />
-                    <meta itemProp="maxValue" content="5" />
-                    <meta itemProp="unitCode" content="DAY" />
-                  </div>
-                </div>
-
-                <div
-                  itemProp="hasMerchantReturnPolicy"
-                  itemType="https://schema.org/MerchantReturnPolicy"
-                  itemScope
-                >
-                  <meta itemProp="applicableCountry" content="US" />
-                  <meta
-                    itemProp="returnPolicyCategory"
-                    content="https://schema.org/MerchantReturnFiniteReturnWindow"
-                  />
-                  <meta itemProp="merchantReturnDays" content="15" />
-                  <meta
-                    itemProp="returnMethod"
-                    content="https://schema.org/ReturnByMail"
-                  />
-                  <meta
-                    itemProp="returnFees"
-                    content="https://schema.org/FreeReturn"
-                  />
-                </div>
               </div>
             </div>
 
