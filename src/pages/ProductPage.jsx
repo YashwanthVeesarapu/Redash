@@ -268,7 +268,7 @@ const ProductPage = () => {
               </div>
             </div>
 
-            <div
+            {/* <div
               itemProp="aggregateRating"
               itemType="https://schema.org/AggregateRating"
               itemScope
@@ -297,7 +297,7 @@ const ProductPage = () => {
                 <meta itemProp="ratingValue" content="5" />
                 <meta itemProp="bestRating" content="5" />
               </div>
-            </div>
+            </div> */}
 
             <p>{product.about}</p>
 
