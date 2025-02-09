@@ -26,7 +26,7 @@ pipeline {
                 sh 'npm install -g firebase-tools'
             }
             steps {
-                echo 'Deploying..'
+                echo 'Deploying...'
                 sh 'firebase deploy --only hosting'
             }
         }
