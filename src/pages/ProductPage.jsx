@@ -161,7 +161,10 @@ const ProductPage = () => {
 
             <h3 className="price">${product.price}</h3>
             <div itemType="https://schema.org/Offer" itemScope>
-              <meta itemProp="price" content={product.price} />
+              <meta
+                itemProp="price"
+                content={parseFloat(product.price).toFixed(2)}
+              />
               <meta itemProp="priceValidUntil" content="2025-01-01" />
               <meta itemProp="priceCurrency" content="USD" />
             </div>
