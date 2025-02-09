@@ -165,7 +165,6 @@ const ProductPage = () => {
                 itemProp="price"
                 content={parseFloat(product.price).toFixed(2)}
               />
-              <meta itemProp="priceValidUntil" content="2025-01-01" />
               <meta itemProp="priceCurrency" content="USD" />
             </div>
 
