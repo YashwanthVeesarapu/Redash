@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GOOGLE_APPLICATION_CREDENTIALS = credentials('FIREBASE_TOKEN')
+        GOOGLE_APPLICATION_CREDENTIALS = credentials('REDASH_FIREBASE_TOKEN')
         
     }
     stages {
@@ -37,7 +37,6 @@ pipeline {
                     echo 'Deploying..'
                     sh 'firebase deploy --only hosting'
                 }
-        
             }
          
         }
