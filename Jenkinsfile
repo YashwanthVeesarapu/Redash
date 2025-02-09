@@ -29,14 +29,13 @@ pipeline {
                     echo 'Installing Firebase..'
                     sh 'npm install -g firebase-tools'
                 }
+                script {
+                    echo 'Deploying..'
+                    sh 'firebase deploy --only hosting'
+                }
         
             }
-            steps {
-                script{
-                    echo 'Login to Firebase..'
-                    sh 'firebase login:ci --no-localhost'
-                }
-            }
+         
         }
     }
 }
