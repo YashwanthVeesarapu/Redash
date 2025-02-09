@@ -148,8 +148,6 @@ const ProductPage = () => {
           <div className="product-details">
             <h2>{product.name}</h2>
             <meta itemProp="name" content={product.name} />
-            <meta itemProp="url" content={window.location.href} />
-
             <meta
               itemProp="itemCondition"
               content="https://schema.org/NewCondition"
@@ -166,6 +164,7 @@ const ProductPage = () => {
                 content={parseFloat(product.price).toFixed(2)}
               />
               <meta itemProp="priceCurrency" content="USD" />
+              <meta itemProp="url" content={window.location.href} />
             </div>
 
             <div
