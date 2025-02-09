@@ -16,18 +16,26 @@ pipeline {
             }
         stage('Build') {
             steps {
-                echo 'Building..'
-                sh 'npm run build'
+                script {
+                    echo 'Installing..'
+                    sh 'npm install'
+                }
+      
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Installing Firebase...'
-                sh 'npm install -g firebase-tools'
+                script {
+                    echo 'Installing Firebase..'
+                    sh 'npm install -g firebase-tools'
+                }
+        
             }
             steps {
-                echo 'Deploying...'
-                sh 'firebase deploy --only hosting'
+                script{
+                    echo 'Login to Firebase..'
+                    sh 'firebase login:ci --no-localhost'
+                }
             }
         }
     }
