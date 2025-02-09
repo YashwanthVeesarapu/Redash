@@ -158,7 +158,11 @@ const ProductPage = () => {
             />
 
             <h3 className="price">${product.price}</h3>
-            <div itemType="https://schema.org/Offer" itemScope>
+            <div
+              itemProp="offers"
+              itemType="https://schema.org/Offer"
+              itemScope
+            >
               <meta
                 itemProp="price"
                 content={parseFloat(product.price).toFixed(2)}
