@@ -20,6 +20,10 @@ pipeline {
                     echo 'Installing..'
                     sh 'npm install'
                 }
+                script {
+                    echo 'Building..'
+                    sh 'npm run build'
+                }
       
             }
         }
@@ -27,7 +31,7 @@ pipeline {
             steps {
                 script {
                     echo 'Installing Firebase..'
-                    sh 'npm install -g firebase-tools'
+                    sh 'npm install firebase-tools'
                 }
                 script {
                     echo 'Deploying..'
