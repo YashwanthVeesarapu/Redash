@@ -17,13 +17,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh 'npm run build'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Installing Firebase'
                 sh 'npm install -g firebase-tools'
-                sh 'firebase deploy --token "$FIREBASE_TOKEN"'
             }
             steps {
                 echo 'Deploying..'
