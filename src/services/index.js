@@ -15,7 +15,7 @@ export const returnURL = dev
 
 export const microURL = dev
   ? "http://127.0.0.1:8000/"
-  : "https://micro.redsols.us/";
+  : "https://micro.redsols.com/";
 
 export const url = serverURI;
 export const apiInstance = axios.create({

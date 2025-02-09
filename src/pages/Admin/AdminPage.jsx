@@ -61,7 +61,7 @@ const AdminPage = () => {
 
   // onAuthStateChanged(auth, (user) => {
   //   setLoading(false);
-  //   if (auth.currentUser?.email !== "hello@redash.us") {
+  //   if (auth.currentUser?.email !== "hello@redash.com") {
   //     navigate("/");
   //   }
   // });
