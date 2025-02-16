@@ -45,7 +45,7 @@ const CartPage = () => {
         ) : (
           <>
             <p>Your cart looks so empty!!!</p>
-            <Button onClick={() => navigate("/")} variant={"contained"}>
+            <Button onClick={() => navigate("/shop")} variant={"contained"}>
               Shop now
             </Button>
           </>

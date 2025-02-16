@@ -8,6 +8,10 @@ header {
   position: sticky;
   z-index: 10;
 
+  .active {
+    display: none;
+  }
+
   .header-left {
     flex: 1;
     cursor: pointer;
@@ -90,7 +94,7 @@ header {
       left: 0;
 
       //Add blur filter
-      h2 {
+      a {
         border: 1px solid white;
         padding: 10px;
         margin: 2px 0;

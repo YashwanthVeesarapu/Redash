@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -21,6 +21,8 @@ import PrivacyPage from "./pages/PrivacyPage";
 import ReturnsPage from "./pages/ReturnsPage";
 
 import { app } from "./firebase/firebase";
+import MusicPage from "./pages/MusicPage";
+import DealsPage from "./pages/DealsPage";
 
 function App() {
   const [open, setOpen] = useState({});
@@ -49,22 +51,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route
-          path="/about"
-          element={
-            <HomePage />
-            // user ? (
-            //   <HomePage />
-            // ) : (
-            //   <Navigate
-            //     to={"/login"}
-            //     state={{
-            //       message: "You need to be logged in to access our site",
-            //     }}
-            //   />
-            // )
-          }
-        />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<HomePage />} />
         <Route path="/login" element={<LoginPage setOpen={setOpen} />} />
         <Route path="/register" element={<RegisterPage setOpen={setOpen} />} />
         <Route path="/contact" element={<ContactPage setOpen={setOpen} />} />
@@ -73,7 +61,7 @@ function App() {
 
         <Route path="/custom" element={<CustomisePage />} />
 
-        <Route path="/" element={<ShopPage setOpen={setOpen} />} />
+        <Route path="/shop" element={<ShopPage setOpen={setOpen} />} />
         <Route path="/profile" element={<ProfilePage setOpen={setOpen} />} />
         <Route path="/hellobello" element={<AdminPage />} />
         <Route path="/product/:productName/:color" element={<ProductPage />} />
@@ -83,8 +71,11 @@ function App() {
           element={<OrderPlacedPage setOpen={setOpen} />}
         />
 
+        <Route path="/music" element={<MusicPage />} />
+        <Route path="/deals" element={<DealsPage />} />
+
         <Route path="/checkout" element={<CheckoutPage />} />
-        <Route exact path="*" element={<NotFoundPage />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
       <Snackbar

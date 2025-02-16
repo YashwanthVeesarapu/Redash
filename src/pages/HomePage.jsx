@@ -7,55 +7,40 @@ const HomePage = () => {
   return (
     <MainLayout page="home">
       <div className="about">
+        <h1>Meet MrRedash – The Brand, The Creator, The Deal Hunter</h1>
+
         <p>
-          Welcome to MrRedash, your ultimate destination for all things apparel!
-          We are thrilled to present a fashion emporium where style knows no
-          bounds and individuality reigns supreme. <br />
-          At MrRedash, we believe that clothing is more than just fabric; it's a
-          canvas for self-expression. Our brand embodies a fusion of
-          contemporary trends and timeless classics, curated to cater to the
-          diverse tastes and preferences of our esteemed customers.
+          Welcome to <span class="highlight">MrRedash</span>, where{" "}
+          <strong>fashion, deals, and music</strong> collide!
+        </p>
+
+        <h2>🔥 Merch That Speaks for Itself</h2>
+        <p>
+          Represent the MrRedash vibe with stylish, high-quality apparel
+          designed for those who embrace boldness and authenticity. Every piece
+          is crafted with comfort, individuality, and timeless appeal in mind.
+        </p>
+
+        <h2>💰 Deals You Can’t Miss</h2>
+        <p>
+          Follow <span class="highlight">@mr_redash</span> on{" "}
+          <strong>X/Twitter</strong> for the hottest deals across fashion, tech,
+          and lifestyle. MrRedash scouts the best discounts so you don’t have
+          to—helping you save while staying ahead of the trends.
+        </p>
+
+        <h2>🎵 Music That Hits Different</h2>
+        <p>
+          Beyond fashion and deals,{" "}
+          <span class="highlight">MrRedash is a music producer</span>, creating
+          beats that resonate with passion and energy. Whether it's hard-hitting
+          drops or smooth melodies, the sound of MrRedash is all about making an
+          impact.
         </p>
 
         <p>
-          What sets MrRedash apart is our unyielding commitment to quality and
-          authenticity. Each piece of apparel is handpicked with meticulous
-          attention to detail, ensuring that you receive nothing short of
-          perfection. From the luxurious feel of our fabrics to the impeccable
-          craftsmanship, our clothing will wrap you in comfort and
-          sophistication.
-        </p>
-        <p>
-          Our collection embraces versatility, catering to every occasion and
-          mood. Whether you're seeking casual everyday wear, refined formal
-          attire, or something edgy to make a statement, MrRedash has you
-          covered. Our extensive range spans from chic dresses and tailored
-          suits to street-inspired urban fashion and cozy loungewear.
-        </p>
-        <p>
-          Beyond the latest trends, MrRedash stands for something greater. We
-          champion sustainability and ethical practices, ensuring that our
-          garments are created with respect for the environment and the people
-          involved in their production. When you shop with us, you're making a
-          conscious choice for a better, more responsible future.
-        </p>
-        <p>
-          At MrRedash, customer experience is at the heart of everything we do.
-          Our knowledgeable and friendly team is here to assist you in finding
-          the perfect pieces that resonate with your personality and
-          preferences. Whether you visit our vibrant store or explore our
-          user-friendly online platform, you'll find an immersive shopping
-          experience that delights and inspires.
-        </p>
-        <p>
-          Join the fashion-forward community at MrRedash and unlock a world of
-          possibilities. Step into style browse our website to embrace the
-          essence of MrRedash and redefine your wardrobe.
-        </p>
-        <p>
-          Thank you for choosing MrRedash, where fashion and passion collide to
-          create unforgettable moments in style. Wear your confidence proudly
-          because, with MrRedash, you're always ready to make a bold impression.
+          Join the <strong>MrRedash movement</strong>—where style, savings, and
+          sound come together.
         </p>
       </div>
     </MainLayout>

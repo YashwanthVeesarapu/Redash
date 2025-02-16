@@ -16,6 +16,21 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
+const PAGES = [
+  {
+    title: "Shop",
+    href: "/shop",
+  },
+  {
+    title: "Deals",
+    href: "/deals",
+  },
+  {
+    title: "Music",
+    href: "/music",
+  },
+];
+
 const Header = ({ page }) => {
   const { cart } = useSelector((state) => state);
   const auth = getAuth();
@@ -65,7 +80,7 @@ const Header = ({ page }) => {
         </div>
       )}
       <div className="h-right">
-        {page !== "prelaunch" && (
+        {page !== "prelaunch" && page !== "home" && (
           <IconButton aria-label="cart" onClick={() => navigate("/cart")}>
             <StyledBadge badgeContent={cart.products.length} color="secondary">
               <ShoppingCart style={{ color: "white" }} />
@@ -74,11 +89,15 @@ const Header = ({ page }) => {
         )}
 
         <div className="header-right">
-          {page == "home" && (
-            <div onClick={() => navigate("/")}>
-              <h2>Shop</h2>
-            </div>
-          )}
+          {PAGES.map((face, i) => (
+            <NavLink
+              key={i}
+              to={face.href}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              {face.title}
+            </NavLink>
+          ))}
 
           {/* {page != "home" && (
             <div onClick={() => navigate("/custom")}>
@@ -124,26 +143,16 @@ const Header = ({ page }) => {
                 </IconButton>
               </form>
             </div>
-            {page == "home" && (
-              <div
-                onClick={() => {
-                  navigate("/custom");
-                  setMenuOpen(false);
-                }}
+
+            {PAGES.map((face, i) => (
+              <NavLink
+                key={i}
+                to={face.href}
+                className={({ isActive }) => (isActive ? "active" : "")}
               >
-                <h2>Customize</h2>
-              </div>
-            )}
-            {page != "home" && (
-              <div
-                onClick={() => {
-                  navigate("/");
-                  setMenuOpen(false);
-                }}
-              >
-                <h2>Shop</h2>
-              </div>
-            )}
+                {face.title}
+              </NavLink>
+            ))}
           </nav>
         )}
       </div>
