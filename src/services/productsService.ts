@@ -1,6 +1,6 @@
-import { apiInstance } from "./index.js";
+import { apiInstance } from ".";
 
-const getAllProducts = async (pagenum) => {
+const getAllProducts = async (pagenum: string) => {
   return new Promise((resolve, reject) => {
     apiInstance
       .get(`/products/${pagenum}`)

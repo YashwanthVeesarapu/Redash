@@ -1,35 +1,44 @@
+// This file was renamed from .js to .ts as part of the TypeScript migration.
+// Please add type annotations as needed.
+// ...existing code...
 import { v4 } from "uuid";
 
 const initialState = {
-  products: [],
+  products: [] as any[],
   total: "",
 };
 
-function totalPrice(products) {
-  if (!Array.isArray(products)) return 0;
+function totalPrice(products: any): string {
+  if (!Array.isArray(products)) return "0";
   let total = 0;
 
   for (let i = 0; i < products.length; i++) {
     total =
       total + parseInt(products[i].price) * parseInt(products[i].quantity);
   }
-  return total;
+  return total.toString();
 }
 
-const cartReducer = (state = initialState, action) => {
+const cartReducer = (
+  state = initialState,
+  action: any
+): {
+  products: any[];
+  total: string;
+} => {
   const { type, payload } = action;
 
   switch (type) {
     case "ADD_TO_CART":
       payload.id = v4();
-      const newCartProducts = [...state.products, payload];
+      const newCartProducts: any[] = [...state.products, payload];
       return {
         products: newCartProducts,
         total: totalPrice(newCartProducts),
       };
 
     case "CHANGE_QTY":
-      const newP = state.products.map((p, i) =>
+      const newP: any[] = state.products.map((p: any, i: number) =>
         p.id === payload.id ? { ...p, quantity: payload.quantity } : p
       );
       return {
@@ -37,7 +46,9 @@ const cartReducer = (state = initialState, action) => {
         total: totalPrice(newP),
       };
     case "REMOVE_ITEM":
-      const newCartItems = state.products.filter((p) => p.id !== payload);
+      const newCartItems: any[] = state.products.filter(
+        (p: any) => p.id !== payload
+      );
       return {
         products: newCartItems,
         total: totalPrice(newCartItems),
@@ -49,7 +60,10 @@ const cartReducer = (state = initialState, action) => {
       };
 
     default:
-      return state;
+      return {
+        products: state.products,
+        total: state.total,
+      };
   }
 };
 

@@ -359,6 +359,64 @@ a {
   animation: ease-in-out alternate 1s fadeIn;
 }
 
+.deals-page-root {
+  padding: 2rem;
+  background: #181818;
+  min-height: 100vh;
+}
+
+.deals-title {
+  color: #fafafa;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.deals-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.deals-progress {
+  color: #fafafa !important;
+}
+
+.deals-card {
+  border-radius: 1.5em;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.35);
+  background: linear-gradient(135deg, #232526 60%, #1a1a1a 100%);
+  color: #fafafa;
+  border: 1.5px solid #333;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  &:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
+    border-color: #fafafa;
+    background: linear-gradient(135deg, #232526 40%, #232526 100%);
+  }
+}
+
+.deals-card-title {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+}
+
+.deals-card-desc {
+  color: #d1d5db;
+}
+
+.deals-card-price {
+  color: #ffeb3b;
+  font-weight: 700;
+  margin-top: 1rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+}
+
 @keyframes slidein {
   from {
     width: 400px;

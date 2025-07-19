@@ -23,23 +23,26 @@ const ShopPage = ({ setOpen }) => {
   useEffect(() => {
     setLoading(true);
     if (param == null) {
-      // apiInstance
-      //   .get(`/products/${pagenum}`)
-      //   .then((res) => {
-      //     setProducts(res.data.results);
-      //     setLoading(false);
-      //   })
-      //   .catch(() => setLoading(false));
-
-      getAllProducts(pagenum).then((res) => {
-        setProducts(res);
-        setLoading(false);
-      });
+      getAllProducts(pagenum)
+        .then((res) => {
+          setProducts(res);
+          setLoading(false);
+        })
+        .catch(() => {
+          setProducts([]);
+          setLoading(false);
+        });
     } else {
-      apiInstance.post(`/products/search`, { query: param }).then((res) => {
-        setProducts(res.data.results);
-        setLoading(false);
-      });
+      apiInstance
+        .post(`/products/search`, { query: param })
+        .then((res) => {
+          setProducts(res.data.results);
+          setLoading(false);
+        })
+        .catch(() => {
+          setProducts([]);
+          setLoading(false);
+        });
     }
   }, [param]);
 
@@ -62,7 +65,7 @@ const ShopPage = ({ setOpen }) => {
           products.map((p, i) => <Product {...p} key={i} />)
         ) : (
           <>
-            <p>Something went wrong, Sorry for the inconvinence.</p>
+            <p>Something went wrong, Sorry for the inconvenience.</p>
             <p>This issue has been reported</p>
           </>
         )}

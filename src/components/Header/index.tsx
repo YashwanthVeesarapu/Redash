@@ -25,14 +25,21 @@ const PAGES = [
     title: "Deals",
     href: "/deals",
   },
-  {
-    title: "Music",
-    href: "/music",
-  },
+  // {
+  //   title: "Music",
+  //   href: "/music",
+  // },
 ];
 
-const Header = ({ page }) => {
-  const { cart } = useSelector((state) => state);
+const Header = ({
+  page,
+}: {
+  page?: string;
+  setOpen?: (open: { severity: string; message: string }) => void;
+}) => {
+  const { cart } = useSelector((state) => state) as {
+    cart: { products: any[]; total: string };
+  };
   const auth = getAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -80,14 +87,6 @@ const Header = ({ page }) => {
         </div>
       )}
       <div className="h-right">
-        {page !== "prelaunch" && page !== "home" && (
-          <IconButton aria-label="cart" onClick={() => navigate("/cart")}>
-            <StyledBadge badgeContent={cart.products.length} color="secondary">
-              <ShoppingCart style={{ color: "white" }} />
-            </StyledBadge>
-          </IconButton>
-        )}
-
         <div className="header-right">
           {PAGES.map((face, i) => (
             <NavLink
@@ -104,6 +103,16 @@ const Header = ({ page }) => {
               <h2>Customize</h2>
             </div>
           )} */}
+          {page !== "prelaunch" && page !== "home" && (
+            <IconButton aria-label="cart" onClick={() => navigate("/cart")}>
+              <StyledBadge
+                badgeContent={cart.products.length}
+                color="secondary"
+              >
+                <ShoppingCart style={{ color: "white" }} />
+              </StyledBadge>
+            </IconButton>
+          )}
 
           {auth.currentUser
             ? page !== "profile" && (

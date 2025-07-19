@@ -2,11 +2,18 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: #fff;
   font-weight: bold;
-  padding: 0 10px;
+  padding: 0 32px;
   position: sticky;
-  z-index: 10;
+  z-index: 20;
+  top: 0;
+  min-height: 64px;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1.5px solid #222;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.18);
+  transition: background 0.2s, box-shadow 0.2s;
 
   .active {
     display: none;
@@ -18,16 +25,17 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-
+    gap: 12px;
     sub {
       font-size: 1.5em;
       color: var(--primary-color);
     }
     h1 {
       font-family: var(--base-font-family);
-      font-weight: 300;
+      font-weight: 400;
       text-transform: lowercase;
-
+      font-size: 2rem;
+      letter-spacing: 1px;
       span {
         font-size: 0.7em;
       }
@@ -36,6 +44,11 @@ header {
 
   .shopping-cart {
     cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+    &:hover {
+      color: #ffeb3b;
+      transform: scale(1.1);
+    }
   }
 
   .header-middle {
@@ -43,15 +56,19 @@ header {
     flex: 1;
     justify-content: center;
     align-items: center;
-
     input {
-      padding: 5px 10px;
+      padding: 10px 20px;
       border-radius: 2em;
       border: none;
-      background-color: rgba(255, 255, 255, 0.5);
-      color: white;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-size: 1.1em;
+      font-weight: 400;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+      transition: background 0.2s;
       &:focus {
         outline: none;
+        background: rgba(255, 255, 255, 0.18);
       }
       &::placeholder {
         color: rgba(255, 255, 255, 0.7);
@@ -65,26 +82,62 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-
+    gap: 16px;
     .header-right {
       display: flex;
       flex-direction: row;
       align-items: center;
-    }
+      gap: 12px;
 
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        transition: color 0.2s;
+        font-size: 1.2em;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
     h2 {
       margin: 0 5px 0 20px;
       cursor: pointer;
+      font-weight: 500;
+      font-size: 1.1em;
+      transition: color 0.2s;
+      &:hover {
+        color: #ffeb3b;
+      }
     }
     button {
-      margin: 0 10px;
       cursor: pointer;
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid #333;
+      border-radius: 2em;
+      padding: 6px 18px;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+      svg {
+        fill: #fff;
+        transition: fill 0.2s;
+      }
+      &:hover {
+        background: #fff;
+        color: #181818;
+        border: 1.5px solid #fff;
+
+        svg {
+          fill: #181818;
+        }
+      }
     }
   }
 
   .small-menu {
     display: none;
-
     nav {
       display: flex;
       flex-direction: column;
@@ -92,14 +145,19 @@ header {
       position: absolute;
       top: 50px;
       left: 0;
-
-      //Add blur filter
       a {
-        border: 1px solid white;
+        border: 1px solid #fff;
         padding: 10px;
         margin: 2px 0;
-        background-color: black;
+        background: rgba(0, 0, 0, 0.85);
         cursor: pointer;
+        color: #fff;
+        border-radius: 1em;
+        transition: background 0.2s, color 0.2s;
+        &:hover {
+          background: #fff;
+          color: #181818;
+        }
       }
     }
   }
@@ -107,34 +165,32 @@ header {
 
 @media only screen and (max-width: 700px) {
   header {
+    padding: 0 8px;
     .header-middle {
       display: none;
     }
-
     .h-right {
       .header-right {
         display: none;
       }
     }
-
     .small-menu {
       display: block;
-
       .small-search {
         align-items: center;
-        border: 1px solid white;
-        background-color: black;
+        border: 1px solid #fff;
+        background: rgba(0, 0, 0, 0.85);
         margin: 3px 0;
-
         input {
           padding: 10px;
           border-radius: 2em;
           border: none;
-          background-color: rgba(255, 255, 255, 0.5);
-          color: white;
+          background: rgba(255, 255, 255, 0.12);
+          color: #fff;
           width: 60%;
           &:focus {
             outline: none;
+            background: rgba(255, 255, 255, 0.18);
           }
           &::placeholder {
             color: rgba(255, 255, 255, 0.7);

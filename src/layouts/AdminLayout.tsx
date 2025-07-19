@@ -4,7 +4,12 @@ import Footer from "../components/Footer";
 import { getAuth } from "firebase/auth";
 import { Navigate } from "react-router-dom";
 
-const AdminLayout = (props) => {
+const AdminLayout = (
+  props: React.PropsWithChildren<{
+    page?: string;
+    setOpen?: (open: { severity: string; message: string }) => void;
+  }>
+) => {
   const auth = getAuth();
 
   if (auth.currentUser == null) return <Navigate to="/" />;

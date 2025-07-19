@@ -15,7 +15,6 @@ import CheckoutPage from "./pages/CheckoutPage";
 import { Alert, CircularProgress, Snackbar } from "@mui/material";
 import OrderPlacedPage from "./pages/OrderPlacedPage";
 import MainLayout from "./layouts/MainLayout";
-import NotFoundPage from "./pages/NotFoundPage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import ReturnsPage from "./pages/ReturnsPage";

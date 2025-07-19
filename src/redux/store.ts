@@ -1,3 +1,6 @@
+// This file was renamed from .js to .ts as part of the TypeScript migration.
+// Please add type annotations as needed.
+// ...existing code...
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./reducers/rootReducer";
 

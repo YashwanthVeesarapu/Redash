@@ -1,12 +1,17 @@
+// This file was renamed from .js to .ts as part of the TypeScript migration.
+// Please add type annotations as needed.
+// ...existing code...
 import axios from "axios";
 
 let dev = false;
 
-// if (process.env.ENVIRONMENR === "development") {
-//   // dev = true;
+dev = true;
+
+// if (process.env.ENVIRONMENT === "development") {
+//   dev = true;
 // }
 export const serverURI = dev
-  ? "http://localhost:4000/"
+  ? "http://localhost:8051/"
   : "https://api.mrredash.com/";
 
 export const returnURL = dev
