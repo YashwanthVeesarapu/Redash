@@ -9,6 +9,7 @@ export interface Deal {
   description: string;
   thumbnail: string;
   price: number;
+  regular_price?: number;
   sku: string;
   link: string;
   id?: string;
@@ -72,6 +73,11 @@ const DealsPage: React.FC = () => {
                     </p>
                     <h4 className="deals-card-price">
                       {deal.price ? `$${deal.price}` : "Price not available"}
+                      {deal.regular_price && (
+                        <span className="deals-card-regular-price">
+                          ${deal.regular_price}
+                        </span>
+                      )}
                     </h4>
                     <a
                       href={deal.link || "#"}
