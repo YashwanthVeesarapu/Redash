@@ -5,8 +5,6 @@ import axios from "axios";
 
 let dev = false;
 
-dev = true;
-
 // if (process.env.ENVIRONMENT === "development") {
 //   dev = true;
 // }
